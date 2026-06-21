@@ -1,10 +1,18 @@
-import { Button } from "./components/ui/button"
+import { Show, SignInButton, SignUpButton, UserButton } from '@clerk/react'
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button variant={"outline"}>Click me</Button>
-    </div>
+    <>
+      <header>
+        <Show when="signed-out">
+          <SignInButton />
+          <SignUpButton />
+        </Show>
+        <Show when="signed-in">
+          <UserButton />
+        </Show>
+      </header>
+    </>
   )
 }
 
